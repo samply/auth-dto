@@ -21,43 +21,53 @@
  * additional permission to convey the resulting work.
  */
 
-package de.samply.auth.client.jwt;
+package de.samply.auth.rest;
 
-import com.nimbusds.jwt.JWTParser;
-import com.nimbusds.jwt.SignedJWT;
-import de.samply.auth.client.jwt.JWTVocabulary.TokenType;
+import java.io.Serializable;
+import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import java.text.ParseException;
+/** Created by paul on 4/22/16. */
+@XmlRootElement(name = "role")
+public class RoleDto implements Serializable {
 
-/**
- * A HokJWT proves the possession of a private key. It is self signed using the
- * private key.
- */
-public class JWTHokToken extends AbstractJWT {
+  private String name;
 
-    /**
-     * @param serialized
-     * @throws JWTException
-     * @throws ParseException
-     */
-    public JWTHokToken(String serialized) throws JWTException, ParseException {
-        super(KeyLoader.loadKey((String) (new SignedJWT(
-                JWTParser.parse(serialized).getParsedParts()[0],
-                JWTParser.parse(serialized).getParsedParts()[1],
-                JWTParser.parse(serialized).getParsedParts()[2])).getJWTClaimsSet().getClaim(JWTVocabulary.KEY)), serialized);
-    }
+  private String identifier;
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+  private String description;
 
-    /* (non-Javadoc)
-     * @see de.samply.auth.client.jwt.AbstractJWT#getTokenType()
-     */
-    @Override
-    protected String getTokenType() {
-        return TokenType.HOK_TOKEN;
-    }
+  private List<UserDto> members;
 
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public List<UserDto> getMembers() {
+    return members;
+  }
+
+  public void setMembers(List<UserDto> members) {
+    this.members = members;
+  }
 }

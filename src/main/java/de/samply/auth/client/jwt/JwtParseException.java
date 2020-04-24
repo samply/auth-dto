@@ -24,33 +24,19 @@
 package de.samply.auth.client.jwt;
 
 /**
- * Thrown when an exception occurs while verifying a signature
- * or deserializing a JWT.
- *
+ * Thrown when the Jwt can not be parsed (e.g. it does not consist of three parts separated by a
+ * dot).
  */
-public class JWTException extends Exception {
+public class JwtParseException extends JwtException {
 
-    /**
-     * <p>Constructor for JWTException.</p>
-     *
-     * @param string a {@link java.lang.String} object.
-     */
-    public JWTException(String string) {
-        super(string);
-    }
+  private static final long serialVersionUID = -6893070514018699091L;
 
-    /**
-     * <p>Constructor for JWTException.</p>
-     *
-     * @param e a {@link java.lang.Throwable} object.
-     */
-    public JWTException(Throwable e) {
-        super(e);
-    }
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-
+  /**
+   * Constructor for JwtParseException.
+   *
+   * @param e a {@link java.lang.Throwable} object.
+   */
+  public JwtParseException(Throwable e) {
+    super(e);
+  }
 }

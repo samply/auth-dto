@@ -21,7 +21,5 @@
  * additional permission to convey the resulting work.
  */
 
-/**
- * Contains all data transfer objects for the REST Interface of Samply.Auth
- */
+/** Contains all data transfer objects for the REST Interface of Samply.Auth. */
 package de.samply.auth.rest;

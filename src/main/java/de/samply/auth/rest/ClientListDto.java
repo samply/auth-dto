@@ -24,70 +24,45 @@
 package de.samply.auth.rest;
 
 import java.io.Serializable;
-
-import javax.xml.bind.annotation.XmlElement;
+import java.util.Collection;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
-/**
- * The login data transfer object must be used to generate a valid code
- * for another application. Redirect the user to the redirect url in
- * this DTO.
- *
- */
+/** A collection of client descriptions. */
 @XmlRootElement
-public class LoginDTO implements Serializable {
+public class ClientListDto implements Serializable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = -7633768652982283505L;
 
-    /**
-     * The redirect url for the client you requested.
-     */
-    private String redirectUrl;
+  /** The collection of clients known to this Auth component. */
+  private Collection<ClientDescriptionDto> clients;
 
-    /**
-     * The code the client needs.
-     */
-    private String code;
+  /** Constructor for ClientListDto. */
+  public ClientListDto() {}
 
-    /**
-     * {@link #redirectUrl}
-     *
-     * @return a {@link java.lang.String} object.
-     */
-    @XmlElement(name = "redirect_url")
-    public String getRedirectUrl() {
-        return redirectUrl;
-    }
+  /**
+   * Constructor for ClientListDto.
+   *
+   * @param clients a {@link java.util.Collection} object.
+   */
+  public ClientListDto(Collection<ClientDescriptionDto> clients) {
+    this.clients = clients;
+  }
 
-    /**
-     * {@link #redirectUrl}
-     *
-     * @param redirectUrl a {@link java.lang.String} object.
-     */
-    public void setRedirectUrl(String redirectUrl) {
-        this.redirectUrl = redirectUrl;
-    }
+  /**
+   * Getter for the field <code>clients</code>.
+   *
+   * @return the clients
+   */
+  public Collection<ClientDescriptionDto> getClients() {
+    return clients;
+  }
 
-    /**
-     * {@link #code}
-     *
-     * @return a {@link java.lang.String} object.
-     */
-    public String getCode() {
-        return code;
-    }
-
-    /**
-     * {@link #code}
-     *
-     * @param code a {@link java.lang.String} object.
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
-
+  /**
+   * Setter for the field <code>clients</code>.
+   *
+   * @param clients the clients to set
+   */
+  public void setClients(Collection<ClientDescriptionDto> clients) {
+    this.clients = clients;
+  }
 }

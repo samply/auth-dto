@@ -24,41 +24,22 @@
 package de.samply.auth.rest;
 
 import java.io.Serializable;
-
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Requests a code for another OAuth2 application.
- *
- */
-@XmlRootElement
-public class LoginRequestDTO implements Serializable {
+/** Represents a list of users known to Samply Auth. */
+@XmlRootElement(name = "users")
+public class UserListDto implements Serializable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-    /**
-     * The client ID.
-     */
-    private String clientId;
+  private static final long serialVersionUID = 6633434958254790800L;
 
-    /**
-     * {@link #clientId}
-     *
-     * @return a {@link java.lang.String} object.
-     */
-    public String getClientId() {
-        return clientId;
-    }
+  private List<UserDto> users;
 
-    /**
-     * {@link #clientId}
-     *
-     * @param clientId a {@link java.lang.String} object.
-     */
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
+  public List<UserDto> getUsers() {
+    return users;
+  }
 
+  public void setUsers(List<UserDto> users) {
+    this.users = users;
+  }
 }

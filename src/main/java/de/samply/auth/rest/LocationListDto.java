@@ -23,53 +23,22 @@
 
 package de.samply.auth.rest;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Created by paul on 4/22/16.
- */
-@XmlRootElement(name = "role")
-public class RoleDTO implements Serializable {
+@XmlRootElement(name = "locations")
+public class LocationListDto implements Serializable {
 
-    private String name;
+  private static final long serialVersionUID = 1728692225257440782L;
 
-    private String identifier;
+  private List<LocationDto> locations;
 
-    private String description;
+  public List<LocationDto> getLocations() {
+    return locations;
+  }
 
-    private List<UserDTO> members;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<UserDTO> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<UserDTO> members) {
-        this.members = members;
-    }
+  public void setLocations(List<LocationDto> locations) {
+    this.locations = locations;
+  }
 }

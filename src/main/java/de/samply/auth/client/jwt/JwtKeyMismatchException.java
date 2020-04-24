@@ -23,26 +23,16 @@
 
 package de.samply.auth.client.jwt;
 
-import java.security.PublicKey;
-
 /**
- * The JWT access token returned by ADFS. Since the attributes depend on the ADFS configuration
- * this class does not provide convenience methods like "getEmail".
+ * Thrown when the providers key can not be used to verify a signature (e.g. when the Jwt is signed
+ * using RSA and SHAx, but the key is an elliptic curve key).
  */
-public class JWTAdfsAccessToken extends AbstractJWT {
+public class JwtKeyMismatchException extends JwtException {
 
-    /**
-    *
-    */
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 4099411283509121729L;
 
-    public JWTAdfsAccessToken(PublicKey publicKey, String serialized) throws JWTException {
-        super(publicKey, serialized);
-    }
-
-    @Override
-    protected String getTokenType() {
-        return null;
-    }
-
+  /** Constructor for JwtKeyMismatchException. */
+  public JwtKeyMismatchException() {
+    super("The key can not be used to verify this kind of signature!");
+  }
 }

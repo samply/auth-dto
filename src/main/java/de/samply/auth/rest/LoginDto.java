@@ -23,25 +23,39 @@
 
 package de.samply.auth.rest;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by paul on 4/22/16.
+ * The login data transfer object must be used to generate a valid code for another application.
+ * Redirect the user to the redirect url in this DTO.
  */
-@XmlRootElement(name = "roles")
-public class RoleListDTO implements Serializable {
+@XmlRootElement
+public class LoginDto implements Serializable {
 
+  private static final long serialVersionUID = 3759760373388897073L;
 
+  /** The redirect url for the client you requested. */
+  private String redirectUrl;
 
-    private List<RoleDTO> roles;
+  /** The code the client needs. */
+  private String code;
 
-    public List<RoleDTO> getRoles() {
-        return roles;
-    }
+  @XmlElement(name = "redirect_url")
+  public String getRedirectUrl() {
+    return redirectUrl;
+  }
 
-    public void setRoles(List<RoleDTO> roles) {
-        this.roles = roles;
-    }
+  public void setRedirectUrl(String redirectUrl) {
+    this.redirectUrl = redirectUrl;
+  }
+
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
 }

@@ -21,26 +21,24 @@
  * additional permission to convey the resulting work.
  */
 
-package de.samply.auth.client.jwt;
+package de.samply.auth.rest;
 
-/**
- * Thrown when the providers key can not be used to verify
- * a signature (e.g. when the JWT is signed using RSA and SHAx,
- * but the key is an elliptic curve key).
- *
- */
-public class JWTKeyMissmatchException extends JWTException {
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlRootElement;
 
-    /**
-     * <p>Constructor for JWTKeyMissmatchException.</p>
-     */
-    public JWTKeyMissmatchException() {
-        super("The key can not be used to verify this kind of signature!");
-    }
+/** Requests a code for another OAuth2 application. */
+@XmlRootElement
+public class LoginRequestDto implements Serializable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 6573453816051173442L;
+  /** The client ID. */
+  private String clientId;
 
+  public String getClientId() {
+    return clientId;
+  }
+
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
 }

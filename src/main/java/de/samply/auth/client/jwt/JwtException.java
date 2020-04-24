@@ -21,72 +21,28 @@
  * additional permission to convey the resulting work.
  */
 
-package de.samply.auth.rest;
+package de.samply.auth.client.jwt;
 
-import java.io.Serializable;
+/** Thrown when an exception occurs while verifying a signature or deserializing a Jwt. */
+public class JwtException extends Exception {
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+  private static final long serialVersionUID = -1040871078531393092L;
 
-/**
- * The registration confirmation. The key ID can be used to request a code to sign in order
- * to authenticate with your private key.
- *
- */
-@XmlRootElement
-public class RegistrationDTO implements Serializable {
+  /**
+   * Constructor for JwtException.
+   *
+   * @param string a {@link java.lang.String} object.
+   */
+  public JwtException(String string) {
+    super(string);
+  }
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * Your user ID
-     */
-    private int userId;
-
-    /**
-     * Your key ID
-     */
-    private int keyId;
-
-    /**
-     * {@link #userId}
-     *
-     * @return a int.
-     */
-    @XmlElement(name = "user_id")
-    public int getUserId() {
-        return userId;
-    }
-
-    /**
-     * {@link #userId}
-     *
-     * @param userId a int.
-     */
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    /**
-     * {@link #keyId}
-     *
-     * @return a int.
-     */
-    @XmlElement(name = "key_id")
-    public int getKeyId() {
-        return keyId;
-    }
-
-    /**
-     * {@link #keyId}
-     *
-     * @param keyId a int.
-     */
-    public void setKeyId(int keyId) {
-        this.keyId = keyId;
-    }
-
+  /**
+   * Constructor for JwtException.
+   *
+   * @param e a {@link java.lang.Throwable} object.
+   */
+  public JwtException(Throwable e) {
+    super(e);
+  }
 }

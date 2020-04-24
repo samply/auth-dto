@@ -24,59 +24,49 @@
 package de.samply.auth.rest;
 
 import java.io.Serializable;
-import java.util.Collection;
-
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * A collection of client descriptions.
- *
+ * Use this class if you want to authenticate using your private key. Sign the code using the
+ * algorithm {@link #algorithm}.
  */
 @XmlRootElement
-public class ClientListDTO implements Serializable {
+public class SignRequestDto implements Serializable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 5996695206929984895L;
 
-    /**
-     * The collection of clients known to this Auth component
-     */
-    private Collection<ClientDescriptionDTO> clients;
+  /** The code that you should sign using your private key. */
+  private String code;
 
-    /**
-     * <p>Constructor for ClientListDTO.</p>
-     */
-    public ClientListDTO() {
+  /** The expiration date of this sign request. After this date, this sign request is invalid. */
+  private long expirationDate;
 
-    }
+  /** The algorithm that you need to used to sign the code. */
+  private String algorithm;
 
-    /**
-     * <p>Constructor for ClientListDTO.</p>
-     *
-     * @param clients a {@link java.util.Collection} object.
-     */
-    public ClientListDTO(Collection<ClientDescriptionDTO> clients) {
-        this.clients = clients;
-    }
+  public String getCode() {
+    return code;
+  }
 
-    /**
-     * <p>Getter for the field <code>clients</code>.</p>
-     *
-     * @return the clients
-     */
-    public Collection<ClientDescriptionDTO> getClients() {
-        return clients;
-    }
+  public void setCode(String code) {
+    this.code = code;
+  }
 
-    /**
-     * <p>Setter for the field <code>clients</code>.</p>
-     *
-     * @param clients the clients to set
-     */
-    public void setClients(Collection<ClientDescriptionDTO> clients) {
-        this.clients = clients;
-    }
+  @XmlElement(name = "exp")
+  public long getExpirationDate() {
+    return expirationDate;
+  }
 
+  public void setExpirationDate(long expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public String getAlgorithm() {
+    return algorithm;
+  }
+
+  public void setAlgorithm(String algorithm) {
+    this.algorithm = algorithm;
+  }
 }

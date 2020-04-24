@@ -25,34 +25,19 @@ package de.samply.auth.rest;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- */
-@XmlRootElement(name = "locations")
-public class LocationListDTO implements Serializable {
+/** Created by paul on 4/22/16. */
+@XmlRootElement(name = "roles")
+public class RoleListDto implements Serializable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+  private List<RoleDto> roles;
 
-    private List<LocationDTO> locations;
+  public List<RoleDto> getRoles() {
+    return roles;
+  }
 
-    /**
-     * @return the locations
-     */
-    public List<LocationDTO> getLocations() {
-        return locations;
-    }
-
-    /**
-     * @param locations the locations to set
-     */
-    public void setLocations(List<LocationDTO> locations) {
-        this.locations = locations;
-    }
-
+  public void setRoles(List<RoleDto> roles) {
+    this.roles = roles;
+  }
 }
