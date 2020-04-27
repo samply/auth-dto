@@ -4,17 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) since v2.4.
 
+## [3.0.1] - 2020-04-27
+### Added
+- list of supported signing algorithms added to OAuth2Discovery
+
 ## [3.0.0] - 2020-04-24
 ### Added
 - support jwts that can't be validated due to their signing algorithm
 ### Changed
 - apply google java code style
 - renamed JwtKeyMissmatchException to JwtKeyMismatchException
-### Deprecated
-### Removed
 ### Fixed
 - don't crash if no "nbt" (not valid before) claim is set in the token
-### Security
 
 ## [2.4] - 2018-12-21
 ### Added

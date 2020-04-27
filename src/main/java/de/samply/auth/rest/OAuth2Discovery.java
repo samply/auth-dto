@@ -61,6 +61,11 @@ public class OAuth2Discovery implements Serializable {
    */
   private String jwksUri;
 
+  /**
+   * The list of supported token signing algorithms.
+   */
+  private List<String> supportedSigningAlgs;
+
   /** The response types that are supported by this identity provider. */
   private List<String> responseTypesSupported;
 
@@ -106,6 +111,15 @@ public class OAuth2Discovery implements Serializable {
 
   public void setJwksUri(String jwksUri) {
     this.jwksUri = jwksUri;
+  }
+
+  @XmlElement(name = "request_object_signing_alg_values_supported")
+  public List<String> getSupportedSigningAlgs() {
+    return supportedSigningAlgs;
+  }
+
+  public void setSupportedSigningAlgs(List<String> supportedSigningAlgs) {
+    this.supportedSigningAlgs = supportedSigningAlgs;
   }
 
   @XmlElement(name = "response_types_supported")
