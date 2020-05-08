@@ -23,6 +23,7 @@
 
 package de.samply.auth.rest;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
@@ -33,6 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * href="http://openid.net/specs/openid-connect-discovery-1_0.html">OpenID connect draft</a>.
  */
 @XmlRootElement
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuth2Discovery implements Serializable {
 
   private static final long serialVersionUID = 450779992698169184L;
