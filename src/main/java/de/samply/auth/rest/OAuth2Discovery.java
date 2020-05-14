@@ -68,6 +68,11 @@ public class OAuth2Discovery implements Serializable {
    */
   private List<String> supportedSigningAlgs;
 
+  /**
+   * The list of supported ID token signing algorithms.
+   */
+  private List<String> supportedIdTokenSigningAlgs;
+
   /** The response types that are supported by this identity provider. */
   private List<String> responseTypesSupported;
 
@@ -122,6 +127,15 @@ public class OAuth2Discovery implements Serializable {
 
   public void setSupportedSigningAlgs(List<String> supportedSigningAlgs) {
     this.supportedSigningAlgs = supportedSigningAlgs;
+  }
+
+  @XmlElement(name = "id_token_signing_alg_values_supported")
+  public List<String> getSupportedIdTokenSigningAlgs() {
+    return supportedIdTokenSigningAlgs;
+  }
+
+  public void setSupportedIdTokenSigningAlgs(List<String> supportedIdTokenSigningAlgs) {
+    this.supportedIdTokenSigningAlgs = supportedIdTokenSigningAlgs;
   }
 
   @XmlElement(name = "response_types_supported")
