@@ -1,0 +1,60 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) since v2.4.
+
+
+## [2.4] - 2018-12-21
+### Added
+- add client permissions map to IDToken
+### Changed
+- Roles in the ID Token contain now more than just the identifier
+- named the users of a role to members
+- switched to SLF4J
+### Removed
+- Backwards compatibility
+### Fixed
+- fixed a bug when initializing a JWT ID token
+- minor bug fixes
+- fix bug in getScopes
+
+## [2.2] - 2015-12-18
+### Added
+- locations
+### Changed
+- updated to the latest JWT library
+
+## [2.1] - 2015-11-07
+### Added
+- Holder of Key JWT (HokToken) and the factory to create a new one
+- state parameter in the OAuth2 authentication
+- `token_type` and `expires_in` attributes in the access token DTO
+- maven site documentation
+### Removed
+- Backwards compatibility
+
+## [2.0] - 2015-08-03
+### Added
+- JWTVocabulary
+- Scope enum
+
+## [1.8.1] - 2015-07-22
+### Added
+- `UserInfoDTO` class, used in the `/userinfo` resource
+
+## [1.8.0] - 2015-07-21
+### Added
+- `usertype` attribute in the ID token
+- `roles` attribute in the ID token, which is a list
+    of role names that user is member of
+- `permission` attribute in the Access token, which is
+    a list of permissions
+
+## [1.7.0] - 2015-06-10
+### Added
+- `type` attribute in all JWTs
+
+## [1.6.1] - 2015-03-06
+### Added
+- Initial release
