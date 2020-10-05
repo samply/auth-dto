@@ -1,26 +1,3 @@
-/*
- * Copyright (C) 2015 Working Group on Joint Research, University Medical Center Mainz
- * Copyright (C) since 2016 The Samply Community
- *
- * <p>This program is free software; you can redistribute it and/or modify it under the terms of the
- * GNU Affero General Public License as published by the Free Software Foundation; either version 3
- * of the License, or (at your option) any later version.
- *
- * <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * <p>You should have received a copy of the GNU Affero General Public License along with this
- * program; if not, see http://www.gnu.org/licenses.
- *
- * <p>Additional permission under GNU GPL version 3 section 7:
- *
- * <p>If you modify this Program, or any covered work, by linking or combining it with Jersey
- * (https://jersey.java.net) (or a modified version of that library), containing parts covered by
- * the terms of the General Public License, version 2.0, the licensors of this Program grant you
- * additional permission to convey the resulting work.
- */
-
 package de.samply.auth.utils;
 
 import de.samply.auth.rest.Scope;
@@ -41,7 +18,7 @@ public class OAuth2ClientConfig {
   public static String getHost(OAuth2Client config, String serverName) {
     String host = config.getHost();
 
-    /**
+    /*
      * There might be an additional hostname that should be used. Check the servername for equality
      * and change the variable host accordingly.
      */
@@ -163,12 +140,7 @@ public class OAuth2ClientConfig {
                 StringUtil.join(
                     scopes,
                     " ",
-                    new Builder<Scope>() {
-                      @Override
-                      public String build(Scope o) {
-                        return o.getIdentifier();
-                      }
-                    }),
+                        Scope::getIdentifier),
                 StandardCharsets.UTF_8.displayName()));
     builder
         .append("&redirect_uri=")
@@ -219,14 +191,7 @@ public class OAuth2ClientConfig {
   public static String getLocalRedirectUrl(
       String scheme, String serverName, int port, String contextPath, String redirectUrl) {
     String strPort = (port == 80 || port == 443 ? "" : ":" + port);
-    StringBuilder builder = new StringBuilder(scheme);
-    builder
-        .append("://")
-        .append(serverName)
-        .append(strPort)
-        .append(contextPath)
-        .append(redirectUrl);
-    return builder.toString();
+    return scheme + "://" + serverName + strPort + contextPath + redirectUrl;
   }
 
   /**

@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) since v2.4.
 
+## [5.0.0]
+### Migration of MIG (Frankfurt) and HD-Verbis (Heidelberg)
+* #### Changed
+    - samply auth parent 3.0 (including samply parent POM 10.1 with Java 8 )
+    - update maven dependency (samply.common.config)
+* #### Added 
+    - `family_name` and `given_name` attributes to ID Token
+    - added a map for permissions in the ID token
+* #### Removed
+    - the `token_type` and `expires_in` attributes are now transmitted, they were already there
+  but have been disabled through `@XmlTransient`
+  
 ## [3.1.0] - 2020-05-14
 ### Added
 - Added id_token_signing_alg_values_supported to OAuth2Discovery
