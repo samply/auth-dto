@@ -55,7 +55,7 @@
         <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>1.5</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
-        <jackson-annotations.version>2.8.6</jackson-annotations.version>
+        <jackson-annotations.version>2.13.0</jackson-annotations.version>
         <nimbus-jose-jwt.version>8.15</nimbus-jose-jwt.version>
         <commons-codec.version>1.9</commons-codec.version>
         <common-config.version>5.1.0</common-config.version>
